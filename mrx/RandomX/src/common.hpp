@@ -72,7 +72,7 @@ namespace randomx {
 		RANDOMX_FREQ_FSCAL_R + RANDOMX_FREQ_FMUL_R + RANDOMX_FREQ_FDIV_M + RANDOMX_FREQ_FSQRT_R + RANDOMX_FREQ_CBRANCH + \
 		RANDOMX_FREQ_CFROUND + RANDOMX_FREQ_ISTORE + RANDOMX_FREQ_NOP;
 
-	static_assert(wtSum == 2560,	"Sum of instruction frequencies must be 256.");
+	static_assert(wtSum == 256,	"Sum of instruction frequencies must be 256.");
 
 
 	constexpr uint32_t ArgonBlockSize = 1024;
