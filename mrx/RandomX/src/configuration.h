@@ -82,44 +82,44 @@ Total sum of frequencies must be 256
 */
 
 //Integer instructions
-#define RANDOMX_FREQ_IADD_RS       16
-#define RANDOMX_FREQ_IADD_M         7
-#define RANDOMX_FREQ_ISUB_R        16
-#define RANDOMX_FREQ_ISUB_M         7
-#define RANDOMX_FREQ_IMUL_R        16
-#define RANDOMX_FREQ_IMUL_M         4
-#define RANDOMX_FREQ_IMULH_R        4
-#define RANDOMX_FREQ_IMULH_M        1
-#define RANDOMX_FREQ_ISMULH_R       4
-#define RANDOMX_FREQ_ISMULH_M       1
-#define RANDOMX_FREQ_IMUL_RCP       8
-#define RANDOMX_FREQ_INEG_R         2
-#define RANDOMX_FREQ_IXOR_R        15
-#define RANDOMX_FREQ_IXOR_M         5
-#define RANDOMX_FREQ_IROR_R         8
-#define RANDOMX_FREQ_IROL_R         2
-#define RANDOMX_FREQ_ISWAP_R        4
+#define RANDOMX_FREQ_IADD_RS       160000
+#define RANDOMX_FREQ_IADD_M         70000
+#define RANDOMX_FREQ_ISUB_R        160000
+#define RANDOMX_FREQ_ISUB_M         70000
+#define RANDOMX_FREQ_IMUL_R        160000
+#define RANDOMX_FREQ_IMUL_M         40000
+#define RANDOMX_FREQ_IMULH_R        40000
+#define RANDOMX_FREQ_IMULH_M        10000
+#define RANDOMX_FREQ_ISMULH_R       40000
+#define RANDOMX_FREQ_ISMULH_M       10000
+#define RANDOMX_FREQ_IMUL_RCP       80000
+#define RANDOMX_FREQ_INEG_R         20000
+#define RANDOMX_FREQ_IXOR_R        150000
+#define RANDOMX_FREQ_IXOR_M         50000
+#define RANDOMX_FREQ_IROR_R         80000
+#define RANDOMX_FREQ_IROL_R         20000
+#define RANDOMX_FREQ_ISWAP_R        40000
 
 //Floating point instructions
-#define RANDOMX_FREQ_FSWAP_R        4
-#define RANDOMX_FREQ_FADD_R        16
-#define RANDOMX_FREQ_FADD_M         5
-#define RANDOMX_FREQ_FSUB_R        16
-#define RANDOMX_FREQ_FSUB_M         5
-#define RANDOMX_FREQ_FSCAL_R        6
-#define RANDOMX_FREQ_FMUL_R        32
-#define RANDOMX_FREQ_FDIV_M         4
-#define RANDOMX_FREQ_FSQRT_R        6
+#define RANDOMX_FREQ_FSWAP_R        40000
+#define RANDOMX_FREQ_FADD_R        160000
+#define RANDOMX_FREQ_FADD_M         50000
+#define RANDOMX_FREQ_FSUB_R        160000
+#define RANDOMX_FREQ_FSUB_M         50000
+#define RANDOMX_FREQ_FSCAL_R        60000
+#define RANDOMX_FREQ_FMUL_R        320000
+#define RANDOMX_FREQ_FDIV_M         40000
+#define RANDOMX_FREQ_FSQRT_R        60000
 
 //Control instructions
-#define RANDOMX_FREQ_CBRANCH       25
-#define RANDOMX_FREQ_CFROUND        1
+#define RANDOMX_FREQ_CBRANCH       250000
+#define RANDOMX_FREQ_CFROUND        10000
 
 //Store instruction
-#define RANDOMX_FREQ_ISTORE        16
+#define RANDOMX_FREQ_ISTORE        160000
 
 //No-op instruction
 #define RANDOMX_FREQ_NOP            0
 /*                               ------
-                                  256
+                                  2560000
 */
