@@ -357,11 +357,38 @@ extern "C" {
 		assert(blakeResult == 0);
 		machine->initScratchpad(&tempHash);
 		machine->resetRoundingMode();
-		for (int chain = 0; chain < RANDOMX_PROGRAM_COUNT - 1; ++chain) {
-			machine->run(&tempHash);
-			blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
-			assert(blakeResult == 0);
-		}
+		
+		//unroll for loop
+		machine->run(&tempHash);
+		blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
+		assert(blakeResult == 0);
+
+		machine->run(&tempHash);
+		blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
+		assert(blakeResult == 0);
+
+		machine->run(&tempHash);
+		blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
+		assert(blakeResult == 0);
+
+		machine->run(&tempHash);
+		blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
+		assert(blakeResult == 0);
+
+		machine->run(&tempHash);
+		blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
+		assert(blakeResult == 0);
+
+		machine->run(&tempHash);
+		blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
+		assert(blakeResult == 0);
+
+		machine->run(&tempHash);
+		blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
+		assert(blakeResult == 0);
+		
+
+
 		machine->run(&tempHash);
 		machine->getFinalResult(output, RANDOMX_HASH_SIZE);
 		fesetenv(&fpstate);
