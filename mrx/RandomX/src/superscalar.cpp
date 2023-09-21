@@ -853,6 +853,7 @@ namespace randomx {
 
 		prog.codeSize = codeSize;
 		prog.macroOps = macroOpCount;
+		
 		prog.decodeCycles = decodeCycle;
 
 		// ipc

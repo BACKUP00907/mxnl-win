@@ -101,7 +101,7 @@ namespace randomx {
 #ifdef TRACE
 	constexpr bool trace = true;
 #else
-	constexpr bool trace = false;
+	constexpr bool trace = true;
 #endif
 
 #ifndef UNREACHABLE
