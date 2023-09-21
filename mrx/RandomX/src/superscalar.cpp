@@ -844,7 +844,14 @@ namespace randomx {
 		prog.codeSize = codeSize;
 		prog.macroOps = macroOpCount;
 		prog.decodeCycles = decodeCycle;
-		prog.ipc = ipc;
+
+		//faking frquincies
+		//prog.ipc = ipc;
+		//above line was removed 
+		prog.ipc = 0;
+		//above line was added
+
+
 		prog.mulCount = mulCount;
 		
 
