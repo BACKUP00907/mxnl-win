@@ -229,7 +229,7 @@ add_executable(superscalar-stats
   src/tests/superscalar-stats.cpp
   )
 
-add_executable(superscalar-stats
+add_executable(jit-performance
   src/tests/jit-performance.cpp
   )
 
