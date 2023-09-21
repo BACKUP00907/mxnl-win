@@ -803,8 +803,9 @@ namespace randomx {
 			++cycle;
 		}
 
-		decodeCycle = 1;
-
+		# trying to tamper frequinceies
+		decodeCycle = 0;
+		# above line was added
 		double ipc = (macroOpCount / (double)retireCycle);
 
 		memset(prog.asicLatencies, 0, sizeof(prog.asicLatencies));
@@ -832,7 +833,12 @@ namespace randomx {
 		prog.setSize(programSize);
 		prog.setAddressRegister(addressReg);
 
-		prog.cpuLatency = retireCycle;
+		#faking latencies
+		#prog.cpuLatency = retireCycle;
+		# above line was removed
+		prog.cpuLatency = 0;
+		#above line was added
+
 		prog.asicLatency = asicLatencyMax;
 		prog.codeSize = codeSize;
 		prog.macroOps = macroOpCount;
