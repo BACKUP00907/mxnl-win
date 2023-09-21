@@ -80,6 +80,11 @@ endif()
 include(CheckCXXCompilerFlag)
 include(CheckCCompilerFlag)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math -fno-cx-limited-range -funroll-loops  -march=native -mtune=native" PARENT_SCOPE)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math -fno-cx-limited-range -funroll-loops  -march=native -mtune=native"  PARENT_SCOPE)
+
+
 function(add_flag flag)
   string(REPLACE "-" "_" supported_cxx ${flag}_cxx)
   check_cxx_compiler_flag(${flag} ${supported_cxx})
