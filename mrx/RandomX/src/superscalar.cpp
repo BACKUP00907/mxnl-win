@@ -824,7 +824,7 @@ namespace randomx {
 		int asicLatencyMax = 0;
 		int addressReg = 0;
 		for (int i = 0; i < 8; ++i) {
-			if (prog.asicLatencies[i] <= asicLatencyMax) {
+			if (prog.asicLatencies[i] > asicLatencyMax) {
 				asicLatencyMax = prog.asicLatencies[i];
 				addressReg = i;
 			}
