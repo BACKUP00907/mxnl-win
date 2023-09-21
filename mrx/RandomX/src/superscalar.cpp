@@ -803,7 +803,7 @@ namespace randomx {
 			++cycle;
 		}
 
-		decodeCycle = 10;
+		decodeCycle = 1;
 
 		double ipc = (macroOpCount / (double)retireCycle);
 
