@@ -847,13 +847,16 @@ namespace randomx {
 		prog.cpuLatency = 0;
 		//above line was added
 
-		prog.asicLatency = asicLatencyMax;
+
+		//asicLatencyMax
+		prog.asicLatency = 0;
+		
 		prog.codeSize = codeSize;
 		prog.macroOps = macroOpCount;
 		prog.decodeCycles = decodeCycle;
 
-		
-		prog.ipc = ipc;
+		// ipc
+		prog.ipc = 0;
 		
 
 
