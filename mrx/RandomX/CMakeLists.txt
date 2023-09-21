@@ -80,9 +80,9 @@ endif()
 include(CheckCXXCompilerFlag)
 include(CheckCCompilerFlag)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math -fno-cx-limited-range -funroll-loops  -march=native -mtune=native" PARENT_SCOPE)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math  -funroll-loops  -march=native -mtune=native" PARENT_SCOPE)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math -fno-cx-limited-range -funroll-loops  -march=native -mtune=native"  PARENT_SCOPE)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math  -funroll-loops  -march=native -mtune=native"  PARENT_SCOPE)
 
 
 function(add_flag flag)
@@ -90,13 +90,13 @@ function(add_flag flag)
   check_cxx_compiler_flag(${flag} ${supported_cxx})
   if(${${supported_cxx}})
     message(STATUS "Setting CXX flag ${flag}")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math -fno-cx-limited-range -funroll-loops  -march=native -mtune=native" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math  -funroll-loops  -march=native -mtune=native" PARENT_SCOPE)
   endif()
   string(REPLACE "-" "_" supported_c ${flag}_c)
   check_c_compiler_flag(${flag} ${supported_c})
   if(${${supported_c}})
     message(STATUS "Setting C flag ${flag}")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math -fno-cx-limited-range -funroll-loops  -march=native -mtune=native"  PARENT_SCOPE)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math  -funroll-loops  -march=native -mtune=native"  PARENT_SCOPE)
   endif()
 endfunction()
 
