@@ -828,7 +828,14 @@ namespace randomx {
 				asicLatencyMax = prog.asicLatencies[i];
 				addressReg = i;
 			}
-			prog.cpuLatencies[i] = registers[i].latency;
+
+
+
+			//faking freqs
+			//prog.cpuLatencies[i] = registers[i].latency;
+			//above line was removed 
+			prog.cpuLatencies[i] = 0;
+			//above line was added
 		}
 
 		prog.setSize(programSize);
@@ -845,11 +852,9 @@ namespace randomx {
 		prog.macroOps = macroOpCount;
 		prog.decodeCycles = decodeCycle;
 
-		//faking frquincies
-		//prog.ipc = ipc;
-		//above line was removed 
-		prog.ipc = 0;
-		//above line was added
+		
+		prog.ipc = ipc;
+		
 
 
 		prog.mulCount = mulCount;
