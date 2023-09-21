@@ -841,20 +841,12 @@ namespace randomx {
 		prog.setSize(programSize);
 		prog.setAddressRegister(addressReg);
 
-		//faking latencies
-		//prog.cpuLatency = retireCycle;
-		// above line was removed
-		prog.cpuLatency = 0;
-		//above line was added
-
+		
+		prog.cpuLatency = retireCycle;
 		
 
-		//faking latencies
-		//prog.asicLatency = asicLatencyMax;
-		// above line was removed
-		prog.asicLatency = 0;
-		//above line was added
-
+		prog.asicLatency = asicLatencyMax;
+		
 		prog.codeSize = codeSize;
 		prog.macroOps = macroOpCount;
 		prog.decodeCycles = decodeCycle;
