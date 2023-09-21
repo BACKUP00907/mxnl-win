@@ -220,6 +220,21 @@ endif()
 add_executable(randomx-benchmark
   src/tests/benchmark.cpp
   src/tests/affinity.cpp)
+
+add_executable(perf-simulation
+  src/tests/perf-simulation.cpp
+  )
+
+add_executable(superscalar-stats
+  src/tests/superscalar-stats.cpp
+  )
+
+add_executable(superscalar-stats
+  src/tests/jit-performance.cpp
+  )
+
+
+
 target_link_libraries(randomx-benchmark
   PRIVATE randomx
   PRIVATE ${CMAKE_THREAD_LIBS_INIT})
