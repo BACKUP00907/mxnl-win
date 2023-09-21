@@ -803,6 +803,8 @@ namespace randomx {
 			++cycle;
 		}
 
+		decodeCycle = 10;
+
 		double ipc = (macroOpCount / (double)retireCycle);
 
 		memset(prog.asicLatencies, 0, sizeof(prog.asicLatencies));
