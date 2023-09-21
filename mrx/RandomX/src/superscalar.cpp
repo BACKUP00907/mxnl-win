@@ -847,7 +847,14 @@ namespace randomx {
 		prog.cpuLatency = 0;
 		//above line was added
 
-		prog.asicLatency = asicLatencyMax;
+		
+
+		//faking latencies
+		//prog.asicLatency = asicLatencyMax;
+		// above line was removed
+		prog.asicLatency = 0;
+		//above line was added
+
 		prog.codeSize = codeSize;
 		prog.macroOps = macroOpCount;
 		prog.decodeCycles = decodeCycle;
