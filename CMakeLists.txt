@@ -10,8 +10,8 @@ add_subdirectory(mrx/RandomX)
 include(CheckCXXCompilerFlag)
 include(CheckCCompilerFlag)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}  -faggressive-loop-optimizations  -ftree-vectorize -ffast-math -Ofast  -fcx-limited-range -funroll-loops -march=native -mtune=native ")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flag}  -faggressive-loop-optimizations  -ftree-vectorize -ffast-math -Ofast  -fcx-limited-range -funroll-loops  -march=native -mtune=native ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}  -faggressive-loop-optimizations  -ftree-vectorize -ffast-math -Ofast   -funroll-loops -march=native -mtune=native ")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flag}  -faggressive-loop-optimizations  -ftree-vectorize -ffast-math -Ofast   -funroll-loops  -march=native -mtune=native ")
 
 include_directories(${RANDOMX_INCLUDE})
 
