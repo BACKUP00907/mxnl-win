@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
 
 	std::cout << "Compiling " << count << " programs..." << std::endl;
 
-	Stopwatch sw(true);
+	Stopwatch sw(true); 
 
 	for (int i = 0; i < count; ++i) {
 		fillAes1Rx4<false>(hash, sizeof(program), &program);
