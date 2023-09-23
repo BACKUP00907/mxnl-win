@@ -220,9 +220,39 @@ endif()
 add_executable(randomx-benchmark
   src/tests/benchmark.cpp
   src/tests/affinity.cpp)
+
+add_executable(perf-simulation
+  src/tests/perf-simulation.cpp
+  )
+
+add_executable(superscalar-stats
+  src/tests/superscalar-stats.cpp
+  )
+
+add_executable(jit-performance
+  src/tests/jit-performance.cpp
+  )
+
+
+
 target_link_libraries(randomx-benchmark
   PRIVATE randomx
   PRIVATE ${CMAKE_THREAD_LIBS_INIT})
+
+
+target_link_libraries(perf-simulation
+  PRIVATE randomx
+  PRIVATE ${CMAKE_THREAD_LIBS_INIT})
+
+target_link_libraries(superscalar-stats
+  PRIVATE randomx
+  PRIVATE ${CMAKE_THREAD_LIBS_INIT})
+
+
+target_link_libraries(jit-performance
+  PRIVATE randomx
+  PRIVATE ${CMAKE_THREAD_LIBS_INIT})
+  
 
 include(CheckCXXSourceCompiles)
 check_cxx_source_compiles("
