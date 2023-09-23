@@ -804,7 +804,7 @@ namespace randomx {
 		}
 
 		// trying to tamper frequinceies
-		decodeCycle = 0;
+		//decodeCycle = 0;
 		// above line was added
 
 		double ipc = (macroOpCount / (double)retireCycle);
@@ -832,9 +832,9 @@ namespace randomx {
 
 
 			//faking freqs
-			//prog.cpuLatencies[i] = registers[i].latency;
+			prog.cpuLatencies[i] = registers[i].latency;
 			//above line was removed 
-			prog.cpuLatencies[i] = 0;
+			//prog.cpuLatencies[i] = 0;
 			//above line was added
 		}
 
@@ -842,14 +842,14 @@ namespace randomx {
 		prog.setAddressRegister(addressReg);
 
 		//faking latencies
-		//prog.cpuLatency = retireCycle;
+		prog.cpuLatency = retireCycle;
 		// above line was removed
-		prog.cpuLatency = 0;
+		//prog.cpuLatency = 0;
 		//above line was added
 
 
-		//asicLatencyMax
-		prog.asicLatency = 0;
+		//0
+		prog.asicLatency = asicLatencyMax;
 
 		prog.codeSize = codeSize;
 		prog.macroOps = macroOpCount;
@@ -857,7 +857,7 @@ namespace randomx {
 		prog.decodeCycles = decodeCycle;
 
 		// ipc
-		prog.ipc = 0;
+		prog.ipc = ipc;
 		
 
 
