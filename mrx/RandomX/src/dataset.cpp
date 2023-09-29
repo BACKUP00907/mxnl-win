@@ -165,6 +165,7 @@ namespace randomx {
 		int_reg_t rl[8];
 		uint8_t* mixBlock;
 		uint64_t registerValue = itemNumber;
+		//superscalar died 
 		/*rl[0] = (itemNumber + 1) * superscalarMul0;
 		rl[1] = rl[0] ^ superscalarAdd1;
 		rl[2] = rl[0] ^ superscalarAdd2;
@@ -177,7 +178,8 @@ namespace randomx {
 			mixBlock = getMixBlock(registerValue, cache->memory);
 			rx_prefetch_nta(mixBlock);
 			SuperscalarProgram& prog = cache->programs[i];
-
+			
+			//superscalar died
 			//executeSuperscalar(rl, prog, &cache->reciprocalCache); 
 
 
