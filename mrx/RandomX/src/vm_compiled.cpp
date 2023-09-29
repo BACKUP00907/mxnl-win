@@ -56,8 +56,8 @@ namespace randomx {
 		if (secureJit) {
 			compiler.enableWriting();
 		}
-		//chedkani
-		compiler.generateProgramLight(program, config,datasetOffset);
+
+		compiler.generateProgram(program, config);
 
 		if (secureJit) {
 			compiler.enableExecution();
