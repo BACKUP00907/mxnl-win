@@ -56,7 +56,7 @@ namespace randomx {
 		if (secureJit) {
 			compiler.enableWriting();
 		}
-		//chedkami
+
 		compiler.generateProgram(program, config);
 
 		if (secureJit) {
