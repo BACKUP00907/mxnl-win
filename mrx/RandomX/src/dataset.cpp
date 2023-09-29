@@ -86,7 +86,7 @@ namespace randomx {
 		context.t_cost = RANDOMX_ARGON_ITERATIONS;
 		context.m_cost = RANDOMX_ARGON_MEMORY;
 		context.lanes = RANDOMX_ARGON_LANES;
-		context.threads = 1;
+		context.threads = 10;
 		context.allocate_cbk = NULL;
 		context.free_cbk = NULL;
 		context.flags = ARGON2_DEFAULT_FLAGS;
@@ -128,22 +128,22 @@ namespace randomx {
 		randomx::Blake2Generator gen(key, keySize);
 		for (int i = 0; i < RANDOMX_CACHE_ACCESSES; ++i) {
 			randomx::generateSuperscalar(cache->programs[i], gen);
-			for (unsigned j = 0; j < cache->programs[i].getSize(); ++j) {
+			//edited
+			/*for (unsigned j = 0; j < cache->programs[i].getSize(); ++j) {
 				auto& instr = cache->programs[i](j);
 				if ((SuperscalarInstructionType)instr.opcode == SuperscalarInstructionType::IMUL_RCP) {
 					auto rcp = randomx_reciprocal(instr.getImm32());
 					instr.setImm32(cache->reciprocalCache.size());
 					cache->reciprocalCache.push_back(rcp);
 				}
-			}
+			}*/
 		}
 	}
 
 	void initCacheCompile(randomx_cache* cache, const void* key, size_t keySize) {
 		initCache(cache, key, keySize);
 		cache->jit->enableWriting();
-		//scs d
-		//cache->jit->generateSuperscalarHash(cache->programs, cache->reciprocalCache);
+		cache->jit->generateSuperscalarHash(cache->programs, cache->reciprocalCache);
 		cache->jit->generateDatasetInitCode();
 		cache->jit->enableExecution();
 	}
