@@ -142,7 +142,8 @@ namespace randomx {
 	void initCacheCompile(randomx_cache* cache, const void* key, size_t keySize) {
 		initCache(cache, key, keySize);
 		cache->jit->enableWriting();
-		cache->jit->generateSuperscalarHash(cache->programs, cache->reciprocalCache);
+		//scs d
+		//cache->jit->generateSuperscalarHash(cache->programs, cache->reciprocalCache);
 		cache->jit->generateDatasetInitCode();
 		cache->jit->enableExecution();
 	}
@@ -178,7 +179,7 @@ namespace randomx {
 			mixBlock = getMixBlock(registerValue, cache->memory);
 			rx_prefetch_nta(mixBlock);
 			SuperscalarProgram& prog = cache->programs[i];
-			
+
 			//superscalar died
 			//executeSuperscalar(rl, prog, &cache->reciprocalCache); 
 
