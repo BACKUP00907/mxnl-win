@@ -49,7 +49,7 @@ namespace randomx {
 	template<class Allocator, bool softAes, bool secureJit>
 	void CompiledVm<Allocator, softAes, secureJit>::run(void* seed) {
 
-		VmBase<Allocator, softAes>::genera           teProgram(seed);
+		VmBase<Allocator, softAes>::generateProgram(seed);
 
 		randomx_vm::initialize();
 
