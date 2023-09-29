@@ -80,9 +80,9 @@ endif()
 include(CheckCXXCompilerFlag)
 include(CheckCCompilerFlag)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math  -funroll-loops  -march=native -mtune=native" PARENT_SCOPE)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}  -foptimize-sibling-calls -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math  -funroll-loops  -march=native -mtune=native" PARENT_SCOPE)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flag}  -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math  -funroll-loops  -march=native -mtune=native"  PARENT_SCOPE)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${flag}  -foptimize-sibling-calls -faggressive-loop-optimizations  -Ofast -ftree-vectorize -ffast-math  -funroll-loops  -march=native -mtune=native"  PARENT_SCOPE)
 
 
 function(add_flag flag)
