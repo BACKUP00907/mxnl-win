@@ -47,15 +47,21 @@ namespace randomx {
 
 	template<class Allocator, bool softAes, bool secureJit>
 	void CompiledLightVm<Allocator, softAes, secureJit>::run(void* seed) {
+
 		VmBase<Allocator, softAes>::generateProgram(seed);
+
 		randomx_vm::initialize();
+
 		if (secureJit) {
 			compiler.enableWriting();
 		}
+
 		compiler.generateProgramLight(program, config, datasetOffset);
+
 		if (secureJit) {
 			compiler.enableExecution();
 		}
+		
 		CompiledVm<Allocator, softAes, secureJit>::execute();
 	}
 
