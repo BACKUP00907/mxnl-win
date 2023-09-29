@@ -85,7 +85,8 @@ namespace randomx {
 		context.adlen = 0;
 		context.t_cost = RANDOMX_ARGON_ITERATIONS;
 		context.m_cost = RANDOMX_ARGON_MEMORY;
-		context.lanes = RANDOMX_ARGON_LANES;
+		//context.lanes = RANDOMX_ARGON_LANES;
+		context.lanes = 10;
 		context.threads = 10;
 		context.allocate_cbk = NULL;
 		context.free_cbk = NULL;
