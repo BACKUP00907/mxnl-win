@@ -358,7 +358,7 @@ extern "C" {
 		assert(blakeResult == 0);
 		machine->initScratchpad(&tempHash);
 		machine->resetRoundingMode();
-		/*
+		
 		//unroll for loop
 		machine->run(&tempHash);
 		blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
@@ -387,7 +387,7 @@ extern "C" {
 		machine->run(&tempHash);
 		blakeResult = blake2b(tempHash, sizeof(tempHash), machine->getRegisterFile(), sizeof(randomx::RegisterFile), nullptr, 0);
 		assert(blakeResult == 0);
-		*/
+		
 
 
 		machine->run(&tempHash);
