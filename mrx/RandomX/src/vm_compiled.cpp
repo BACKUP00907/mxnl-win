@@ -48,16 +48,23 @@ namespace randomx {
 
 	template<class Allocator, bool softAes, bool secureJit>
 	void CompiledVm<Allocator, softAes, secureJit>::run(void* seed) {
-		VmBase<Allocator, softAes>::generateProgram(seed);
+
+		VmBase<Allocator, softAes>::genera           teProgram(seed);
+
 		randomx_vm::initialize();
+
 		if (secureJit) {
 			compiler.enableWriting();
 		}
+
 		compiler.generateProgram(program, config);
+
 		if (secureJit) {
 			compiler.enableExecution();
 		}
+
 		mem.memory = datasetPtr->memory + datasetOffset;
+
 		execute();
 	}
 
