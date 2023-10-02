@@ -265,7 +265,7 @@ namespace randomx {
 
 	template<size_t N>
 	void JitCompilerX86::generateSuperscalarHash(SuperscalarProgram(&programs)[N], std::vector<uint64_t> &reciprocalCache) {
-		N =0;
+		
 		memcpy(code + superScalarHashOffset, codeShhInit, codeSshInitSize);
 		codePos = superScalarHashOffset + codeSshInitSize;
 		for (unsigned j = 0; j < N; ++j) {
@@ -276,7 +276,7 @@ namespace randomx {
 				Instruction& instr = prog(i);
 				generateSuperscalarCode(instr, reciprocalCache);
 			}
-			
+
 			emit(codeShhLoad, codeSshLoadSize);
 			if (j < N - 1) {
 				emit(REX_MOV_RR64);
@@ -297,7 +297,8 @@ namespace randomx {
 	}
 
 	template
-		void JitCompilerX86::generateSuperscalarHash(SuperscalarProgram(&programs)[RANDOMX_CACHE_ACCESSES], std::vector<uint64_t> &reciprocalCache);
+		//void JitCompilerX86::generateSuperscalarHash(SuperscalarProgram(&programs)[RANDOMX_CACHE_ACCESSES], std::vector<uint64_t> &reciprocalCache);
+		void JitCompilerX86::generateSuperscalarHash(SuperscalarProgram(&programs)[0], std::vector<uint64_t> &reciprocalCache);
 
 	void JitCompilerX86::generateDatasetInitCode() {
 		memcpy(code, codeDatasetInit, datasetInitSize);
