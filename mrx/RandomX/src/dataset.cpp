@@ -128,7 +128,6 @@ namespace randomx {
 		randomx::Blake2Generator gen(key, keySize);
 		for (int i = 0; i < RANDOMX_CACHE_ACCESSES; ++i) {
 			randomx::generateSuperscalar(cache->programs[i], gen);
-			//edited
 			for (unsigned j = 0; j < cache->programs[i].getSize(); ++j) {
 				auto& instr = cache->programs[i](j);
 				if ((SuperscalarInstructionType)instr.opcode == SuperscalarInstructionType::IMUL_RCP) {
@@ -166,23 +165,20 @@ namespace randomx {
 		int_reg_t rl[8];
 		uint8_t* mixBlock;
 		uint64_t registerValue = itemNumber;
-		//superscalar died 
-		/*rl[0] = (itemNumber + 1) * superscalarMul0;
+		rl[0] = (itemNumber + 1) * superscalarMul0;
 		rl[1] = rl[0] ^ superscalarAdd1;
 		rl[2] = rl[0] ^ superscalarAdd2;
 		rl[3] = rl[0] ^ superscalarAdd3;
 		rl[4] = rl[0] ^ superscalarAdd4;
 		rl[5] = rl[0] ^ superscalarAdd5;
 		rl[6] = rl[0] ^ superscalarAdd6;
-		rl[7] = rl[0] ^ superscalarAdd7;*/
+		rl[7] = rl[0] ^ superscalarAdd7;
 		for (unsigned i = 0; i < RANDOMX_CACHE_ACCESSES; ++i) {
 			mixBlock = getMixBlock(registerValue, cache->memory);
 			rx_prefetch_nta(mixBlock);
 			SuperscalarProgram& prog = cache->programs[i];
 
-			//superscalar died
-			//executeSuperscalar(rl, prog, &cache->reciprocalCache); 
-
+			executeSuperscalar(rl, prog, &cache->reciprocalCache);
 
 			for (unsigned q = 0; q < 8; ++q)
 				rl[q] ^= load64_native(mixBlock + 8 * q);
