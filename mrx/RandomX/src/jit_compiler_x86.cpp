@@ -274,7 +274,7 @@ namespace randomx {
 
 			for (unsigned i = 0; i < prog.getSize(); ++i) {
 				Instruction& instr = prog(i);
-				//generateSuperscalarCode(instr, reciprocalCache);
+				generateSuperscalarCode(instr, reciprocalCache);
 			}
 
 			emit(codeShhLoad, codeSshLoadSize);
