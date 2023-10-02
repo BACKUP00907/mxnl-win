@@ -24,14 +24,14 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     
     
     
-    unsigned int nonce = 1 ;
+    unsigned long int nonce = 1 ;
     nonce += hohu;
-    unsigned int lnnonce = 1 ;
-    unsigned int* enonce = &lnnonce;
+    unsigned long int lnnonce = 1 ;
+    unsigned long int* enonce = &lnnonce;
     
     
     
-    char input[250];
+    char input[254];
     uint64_t seed_height = rx_seedheight(height);
     std::string output;
     output.resize(32);
