@@ -85,7 +85,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
             return output;
         
         }
-        memset(&input[0], 0, 250);
+        memset(&input[0], 0, 254);
     	nonce++;
     	
         std::cout << "\b" << "\ ";
