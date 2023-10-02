@@ -50,6 +50,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     size_t nbl = (fbl+sizeof(nonce));
     size_t xbl = nbl + lbl;
     while (1 == 1){
+        std::cout << "\b|";
     
     	//lnnonce = __builtin_bswap64(nonce);
     	lnnonce = nonce;
@@ -69,7 +70,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
         memcpy(&r64,or64,8);
       
         
-        
+        std::cout << "\b/";
         
         //r64 = __builtin_bswap64(r64);
         if( r64 < turget){
@@ -87,6 +88,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
         memset(&input[0], 0, 250);
     	nonce++;
     	
+        std::cout << "\b\";
     	
     }
     
