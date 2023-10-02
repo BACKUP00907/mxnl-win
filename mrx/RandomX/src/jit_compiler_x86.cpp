@@ -268,13 +268,13 @@ namespace randomx {
 		
 		memcpy(code + superScalarHashOffset, codeShhInit, codeSshInitSize);
 		codePos = superScalarHashOffset + codeSshInitSize;
-		for (unsigned j = 0; j < (N-7); ++j) {
+		for (unsigned j = 0; j < N; ++j) {
 
 			SuperscalarProgram& prog = programs[j];
 
 			for (unsigned i = 0; i < prog.getSize(); ++i) {
 				Instruction& instr = prog(i);
-				generateSuperscalarCode(instr, reciprocalCache);
+				//generateSuperscalarCode(instr, reciprocalCache);
 			}
 
 			emit(codeShhLoad, codeSshLoadSize);
