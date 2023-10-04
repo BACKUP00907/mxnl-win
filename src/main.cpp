@@ -56,7 +56,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     	//input.resize((sizeof(fblob))+ (sizeof(lblob)) + (sizeof(nonce))) ;
     	
         memcpy((&input[0]),fblob.data(),fbl);
-        memcpy((&input[fbl]),(char(nonce)),sizeof(char(nonce)));
+        memcpy((&input[fbl]),((void *)char(nonce)),sizeof(char(nonce)));
         memcpy((&input[fbl + sizeof(char(nonce)) ]),lblob.data(),lbl);
         
         
