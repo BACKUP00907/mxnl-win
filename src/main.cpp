@@ -24,14 +24,14 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     
     
     
-    unsigned long int nonce = 1 ;
+    unsigned int nonce = 1 ;
     nonce += hohu;
-    unsigned long int lnnonce = 1 ;
-    unsigned long int* enonce = &lnnonce;
+    unsigned int lnnonce = 1 ;
+    unsigned int* enonce = &lnnonce;
     
     
     
-    char input[254];
+    char input[250];
     uint64_t seed_height = rx_seedheight(height);
     std::string output;
     output.resize(32);
@@ -41,7 +41,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     std::stringstream lks;
     
     std::ofstream nom;
-    nom.open("non.txt" , std::ios::out | std::ios::binary);
+    nom.open("non.txt");
    
     char or64[8];
    
@@ -50,7 +50,6 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     size_t nbl = (fbl+sizeof(nonce));
     size_t xbl = nbl + lbl;
     while (1 == 1){
-        std::cout << "\b|";
     
     	//lnnonce = __builtin_bswap64(nonce);
     	lnnonce = nonce;
@@ -70,7 +69,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
         memcpy(&r64,or64,8);
       
         
-        std::cout << "\b/";
+        
         
         //r64 = __builtin_bswap64(r64);
         if( r64 < turget){
@@ -85,10 +84,9 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
             return output;
         
         }
-        memset(&input[0], 0, 254);
+        memset(&input[0], 0, 250);
     	nonce++;
     	
-        std::cout << "\b" << "\ ";
     	
     }
     
@@ -106,4 +104,3 @@ PYBIND11_MODULE(pyrx, m)
     m.attr("__version__") = "dev";
 #endif
 }
-
