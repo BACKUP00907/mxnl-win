@@ -41,7 +41,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     std::stringstream lks;
     
     std::ofstream nom;
-    nom.open("non.txt");
+    nom.open("non.txt" ,ios::out | ios::binary);
    
     char or64[8];
    
