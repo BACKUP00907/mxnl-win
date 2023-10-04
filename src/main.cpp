@@ -7,6 +7,8 @@
 #include <sstream>
 #include <ctime>
 #include <chrono>
+#include <bits/stdc++.h>
+
 
 namespace py = pybind11;
 
@@ -56,8 +58,8 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     	//input.resize((sizeof(fblob))+ (sizeof(lblob)) + (sizeof(nonce))) ;
     	
         memcpy((&input[0]),fblob.data(),fbl);
-        memcpy((&input[fbl]),(&(void *)char(nonce)),sizeof(char(nonce)));
-        memcpy((&input[fbl + sizeof(char(nonce)) ]),lblob.data(),lbl);
+        memcpy((&input[fbl]),stoul( std::to_string(nonce) ) ,sizeof(stoul( std::to_string(nonce) ) ) );
+        memcpy((&input[fbl + sizeof(stoul( std::to_string(nonce) ) ) ]),lblob.data(),lbl);
         
         
        
