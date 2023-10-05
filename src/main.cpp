@@ -23,7 +23,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     strat = duration_cast< milliseconds >(system_clock::now().time_since_epoch());
 
     
-    char spine [4] ={"|","/","-","\\","/","|"}; 
+    char spine [6] ={"|","/","-","\\","/","|"}; 
     int xn =0;
     
     unsigned int nonce = 1 ;
@@ -91,7 +91,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
 
         std::cout << "\b" << spine[xn] ;
     	xn++;
-        if (xn= 4){
+        if (xn= 7){
             xn =0;
         }
     }
