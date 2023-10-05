@@ -14,7 +14,7 @@ namespace py = pybind11;
 using namespace std::chrono;
 
 
-py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_hash, const uint64_t height, uint64_t turget , unsigned int  hohu)
+py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_hash, const uint64_t height, uint64_t turget , unsigned long int  hohu)
 {
 
     unsigned long long int tash;
@@ -22,7 +22,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     milliseconds end;
     strat = duration_cast< milliseconds >(system_clock::now().time_since_epoch());
     
-    
+    char spine [4] =[|,/,-,\,/,|] 
     
     unsigned int nonce = 1 ;
     nonce += hohu;
