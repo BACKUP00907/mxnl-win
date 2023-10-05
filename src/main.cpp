@@ -97,7 +97,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
 
         std::cout << "\b" << spine[xn] ;
     	xn++;
-        if (xn> 6){
+        if (xn=7){
             xn =0;
         }
     }
