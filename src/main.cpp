@@ -7,8 +7,6 @@
 #include <sstream>
 #include <ctime>
 #include <chrono>
-#include <bits/stdc++.h>
-
 
 namespace py = pybind11;
 
@@ -16,7 +14,7 @@ namespace py = pybind11;
 using namespace std::chrono;
 
 
-py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_hash, const uint64_t height, uint64_t turget , unsigned long  int  hohu)
+py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_hash, const uint64_t height, uint64_t turget , unsigned int  hohu)
 {
 
     unsigned long long int tash;
@@ -26,14 +24,14 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     
     
     
-    unsigned long  int nonce = 1 ;
+    unsigned int nonce = 1 ;
     nonce += hohu;
     unsigned int lnnonce = 1 ;
     unsigned int* enonce = &lnnonce;
     
     
     
-    char input[254];
+    char input[250];
     uint64_t seed_height = rx_seedheight(height);
     std::string output;
     output.resize(32);
@@ -54,12 +52,12 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     while (1 == 1){
     
     	//lnnonce = __builtin_bswap64(nonce);
-    	//lnnonce = nonce;
+    	lnnonce = nonce;
     	//input.resize((sizeof(fblob))+ (sizeof(lblob)) + (sizeof(nonce))) ;
     	
         memcpy((&input[0]),fblob.data(),fbl);
-        memcpy((&input[fbl]), &nonce ,sizeof(nonce));
-        memcpy((&input[fbl + sizeof(nonce ) ]),lblob.data(),lbl);
+        memcpy((&input[fbl]),&nonce,sizeof(nonce));
+        memcpy((&input[nbl]),lblob.data(),lbl);
         
         
        
@@ -86,7 +84,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
             return output;
         
         }
-        memset(&input[0], 0, 254);
+        memset(&input[0], 0, 250);
     	nonce++;
     	
     	
