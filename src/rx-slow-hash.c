@@ -246,7 +246,7 @@ void rx_slow_hashL(const uint64_t mainheight, const uint64_t seedheight, const c
     if (miners && (disabled_flags() & RANDOMX_FLAG_FULL_MEM)) {
       miners = 0;
     }
-    if (miners) {
+    /*if (miners) {
       CTHR_MUTEX_LOCK(rx_dataset_mutex);
       if (rx_dataset == NULL) {
         rx_dataset = randomx_alloc_dataset(RANDOMX_FLAG_LARGE_PAGES);
@@ -264,7 +264,8 @@ void rx_slow_hashL(const uint64_t mainheight, const uint64_t seedheight, const c
         mwarning(RX_LOGCAT, "Couldn't allocate dataset");
       }
       CTHR_MUTEX_UNLOCK(rx_dataset_mutex);
-    }
+    }*/
+    
     rx_vm = randomx_create_vm(flags , rx_sp->rs_cache, NULL);
     if(rx_vm == NULL) { //large pages failed
       mdebug(RX_LOGCAT, "Couldn't use largePages ");
