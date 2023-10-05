@@ -23,7 +23,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     strat = duration_cast< milliseconds >(system_clock::now().time_since_epoch());
 
     
-    char spine [6] ;
+    char* spine [6] ;
     spine[0] ="|";
     spine[1] ="/";
     spine[2] = "-";
