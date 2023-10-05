@@ -248,7 +248,7 @@ void rx_slow_hashL(const uint64_t mainheight, const uint64_t seedheight, const c
     }
     /*if (miners) {
       CTHR_MUTEX_LOCK(rx_dataset_mutex);
-      if (rx_dataset == NULL) {
+      /*if (rx_dataset == NULL) {
         rx_dataset = randomx_alloc_dataset(RANDOMX_FLAG_LARGE_PAGES);
         if (rx_dataset == NULL) {
           mdebug(RX_LOGCAT, "Couldn't use largePages for dataset");
@@ -265,7 +265,6 @@ void rx_slow_hashL(const uint64_t mainheight, const uint64_t seedheight, const c
       }
       CTHR_MUTEX_UNLOCK(rx_dataset_mutex);
     }*/
-    
     rx_vm = randomx_create_vm(flags , rx_sp->rs_cache, NULL);
     if(rx_vm == NULL) { //large pages failed
       mdebug(RX_LOGCAT, "Couldn't use largePages ");
