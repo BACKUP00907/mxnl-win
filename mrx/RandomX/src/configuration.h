@@ -42,10 +42,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //Number of random Cache accesses per Dataset item. Minimum is 2.
 
-#define RANDOMX_CACHE_ACCESSES     1
+#define RANDOMX_CACHE_ACCESSES     8
 
 //Target latency for SuperscalarHash (in cycles of the reference CPU).
-#define RANDOMX_SUPERSCALAR_LATENCY   170
+#define RANDOMX_SUPERSCALAR_LATENCY   1
 
 //Dataset base size in bytes. Must be a power of 2.
 #define RANDOMX_DATASET_BASE_SIZE  2147483648
