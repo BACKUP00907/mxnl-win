@@ -173,6 +173,7 @@ namespace randomx {
 		rl[5] = rl[0] ^ superscalarAdd5;
 		rl[6] = rl[0] ^ superscalarAdd6;
 		rl[7] = rl[0] ^ superscalarAdd7;
+		
 		for (unsigned i = 0; i < RANDOMX_CACHE_ACCESSES; ++i) {
 			mixBlock = getMixBlock(registerValue, cache->memory);
 			rx_prefetch_nta(mixBlock);
