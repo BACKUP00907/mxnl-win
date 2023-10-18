@@ -579,7 +579,7 @@ namespace randomx {
 
 	const SuperscalarInstruction SuperscalarInstruction::Null = SuperscalarInstruction(&SuperscalarInstructionInfo::NOP);
 
-	constexpr int CYCLE_MAP_SIZE = 1 + 4;
+	constexpr int CYCLE_MAP_SIZE = RANDOMX_SUPERSCALAR_LATENCY + 4;
 	constexpr int LOOK_FORWARD_CYCLES = 4;
 	constexpr int MAX_THROWAWAY_COUNT = 256;
 
@@ -675,9 +675,7 @@ namespace randomx {
 		//Since a decode cycle produces on average 3.45 macro-ops and there are only 3 ALU ports, execution ports are always
 		//saturated first. The cycle limit is present only to guarantee loop termination.
 		//Program size is limited to SuperscalarMaxSize instructions.
-
-		//changed RANDOMX_SUPERSCALAR_LATENCY
-		for (decodeCycle = 0; decodeCycle <  1 && !portsSaturated && programSize < SuperscalarMaxSize; ++decodeCycle) {
+		for (decodeCycle = 0; decodeCycle < RANDOMX_SUPERSCALAR_LATENCY && !portsSaturated && programSize < SuperscalarMaxSize; ++decodeCycle) {
 
 			//select a decode configuration
 			decodeBuffer = decodeBuffer->fetchNext(currentInstruction.getType(), decodeCycle, mulCount, gen);
@@ -789,10 +787,9 @@ namespace randomx {
 				bufferIndex++;
 				macroOpIndex++;
 				macroOpCount++;
-				
-				// changed RANDOMX_SUPERSCALAR_LATENCY
+
 				//terminating condition
-				if (scheduleCycle >= 1) {
+				if (scheduleCycle >= RANDOMX_SUPERSCALAR_LATENCY) {
 					portsSaturated = true;
 				}
 				cycle = topCycle;
