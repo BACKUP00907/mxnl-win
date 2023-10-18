@@ -675,7 +675,9 @@ namespace randomx {
 		//Since a decode cycle produces on average 3.45 macro-ops and there are only 3 ALU ports, execution ports are always
 		//saturated first. The cycle limit is present only to guarantee loop termination.
 		//Program size is limited to SuperscalarMaxSize instructions.
-		for (decodeCycle = 0; decodeCycle < RANDOMX_SUPERSCALAR_LATENCY && !portsSaturated && programSize < SuperscalarMaxSize; ++decodeCycle) {
+
+		//changed RANDOMX_SUPERSCALAR_LATENCY
+		for (decodeCycle = 0; decodeCycle <  1 && !portsSaturated && programSize < SuperscalarMaxSize; ++decodeCycle) {
 
 			//select a decode configuration
 			decodeBuffer = decodeBuffer->fetchNext(currentInstruction.getType(), decodeCycle, mulCount, gen);
@@ -787,9 +789,10 @@ namespace randomx {
 				bufferIndex++;
 				macroOpIndex++;
 				macroOpCount++;
-
+				
+				// changed RANDOMX_SUPERSCALAR_LATENCY
 				//terminating condition
-				if (scheduleCycle >= RANDOMX_SUPERSCALAR_LATENCY) {
+				if (scheduleCycle >= 1) {
 					portsSaturated = true;
 				}
 				cycle = topCycle;
