@@ -180,7 +180,7 @@ namespace randomx {
 
 			executeSuperscalar(rl, prog, &cache->reciprocalCache);
 
-			for (unsigned q = 0; q < 8; ++q)
+			for (unsigned q = 0; q < 7; ++q)
 				rl[q] ^= load64_native(mixBlock + 8 * q);
 
 			registerValue = rl[prog.getAddressRegister()];
