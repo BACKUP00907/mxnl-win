@@ -176,7 +176,7 @@ namespace randomx {
 		for (unsigned i = 0; i < RANDOMX_CACHE_ACCESSES; ++i) {
 			mixBlock = getMixBlock(registerValue, cache->memory);
 			rx_prefetch_nta(mixBlock);
-			SuperscalarProgram& prog = cache->programs[5];
+			SuperscalarProgram& prog = cache->programs[2];
 
 			executeSuperscalar(rl, prog, &cache->reciprocalCache);
 
