@@ -29,7 +29,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
     spine[2] = "-";
     spine[3] = "\\";
     spine[5] ="/";
-    spine[6] ="|";
+    
     int xn =0;
     
     unsigned int nonce = 1 ;
@@ -97,7 +97,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
 
         std::cout << "\b" << spine[xn] ;
     	xn++;
-        if (xn=7){
+        if (xn>4){
             xn =0;
         }
     }
