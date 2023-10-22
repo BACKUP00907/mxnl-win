@@ -579,8 +579,8 @@ namespace randomx {
 
 	const SuperscalarInstruction SuperscalarInstruction::Null = SuperscalarInstruction(&SuperscalarInstructionInfo::NOP);
 
-	constexpr int CYCLE_MAP_SIZE = RANDOMX_SUPERSCALAR_LATENCY ;
-	constexpr int LOOK_FORWARD_CYCLES = 4;
+	constexpr int CYCLE_MAP_SIZE = RANDOMX_SUPERSCALAR_LATENCY +4 ;
+	constexpr int LOOK_FORWARD_CYCLES = 2;
 	constexpr int MAX_THROWAWAY_COUNT = 256;
 
 	template<bool commit>
