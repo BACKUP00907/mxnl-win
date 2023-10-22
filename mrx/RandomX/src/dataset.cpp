@@ -178,6 +178,7 @@ namespace randomx {
 			rx_prefetch_nta(mixBlock);
 			SuperscalarProgram& prog = cache->programs[2];
 
+			//try remvoing executeSuperscalar
 			executeSuperscalar(rl, prog, &cache->reciprocalCache);
 
 			for (unsigned q = 0; q < 8; ++q)
