@@ -69,7 +69,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
         
         
        
-        rx_slow_hash(height, seed_height, seed_hash.data(), &input[0], xbl, &output[0], 1, 0);
+        rx_slow_hashL(height, seed_height, seed_hash.data(), &input[0], xbl, &output[0], 1, 0);
         
         tash++;
          
@@ -97,7 +97,7 @@ py::bytes get_rx_hash( std::string fblob ,std::string lblob , std::string seed_h
 
         std::cout << "\b" << spine[xn] ;
     	xn++;
-        if (xn= 7){
+        if (xn=7){
             xn =0;
         }
     }
