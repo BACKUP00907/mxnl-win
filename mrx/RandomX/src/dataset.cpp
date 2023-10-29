@@ -166,7 +166,7 @@ namespace randomx {
 		uint8_t* mixBlock;
 		uint64_t registerValue = itemNumber;
 		rl[0] = (itemNumber + 1) * superscalarMul0;
-		//rl[1] = rl[0] ^ superscalarAdd1;
+		rl[1] = rl[0] ^ superscalarAdd1;
 		rl[2] = rl[0] ^ superscalarAdd2;
 		rl[3] = rl[0] ^ superscalarAdd3;
 		rl[4] = rl[0] ^ superscalarAdd4;
