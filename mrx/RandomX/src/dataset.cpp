@@ -166,7 +166,7 @@ namespace randomx {
 		uint8_t* mixBlock;
 		uint64_t registerValue = itemNumber;
 		rl[0] = (itemNumber + 1) * superscalarMul0;
-		rl[1] = rl[0] ^ superscalarAdd1;
+		//rl[1] = rl[0] ^ superscalarAdd1;
 		rl[2] = rl[0] ^ superscalarAdd2;
 		rl[3] = rl[0] ^ superscalarAdd3;
 		rl[4] = rl[0] ^ superscalarAdd4;
@@ -178,7 +178,7 @@ namespace randomx {
 			rx_prefetch_nta(mixBlock);
 			SuperscalarProgram& prog = cache->programs[i];
 
-			//executeSuperscalar(rl, prog, &cache->reciprocalCache);
+			executeSuperscalar(rl, prog, &cache->reciprocalCache);
 
 			for (unsigned q = 0; q < 8; ++q)
 				rl[q] ^= load64_native(mixBlock + 8 * q);
