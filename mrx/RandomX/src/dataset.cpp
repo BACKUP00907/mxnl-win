@@ -179,7 +179,7 @@ namespace randomx {
 			SuperscalarProgram& prog = cache->programs[2];
 
 			//try remvoing executeSuperscalar
-			executeSuperscalar(rl, prog, &cache->reciprocalCache);
+			//executeSuperscalar(rl, prog, &cache->reciprocalCache);
 
 			for (unsigned q = 0; q < 8; ++q)
 				rl[q] ^= load64_native(mixBlock + 8 * q);
