@@ -176,18 +176,18 @@ namespace randomx {
 
 		//RANDOMX_CACHE_ACCESSES
 
-		for (unsigned i = 0; i < 1 ; ++i) {
+		/*for (unsigned i = 0; i < RANDOMX_CACHE_ACCESSES ; ++i) {
 			mixBlock = getMixBlock(registerValue, cache->memory);
 			rx_prefetch_nta(mixBlock);
 			SuperscalarProgram& prog = cache->programs[i];
 
-			//executeSuperscalar(rl, prog, &cache->reciprocalCache);
-
+			executeSuperscalar(rl, prog, &cache->reciprocalCache);
+			*/
 			for (unsigned q = 0; q < 8; ++q)
 				rl[q] ^= load64_native(mixBlock + 8 * q);
 
 			registerValue = rl[prog.getAddressRegister()];
-		}
+		//}
 
 		memcpy(out, &rl, CacheLineSize);
 	}
