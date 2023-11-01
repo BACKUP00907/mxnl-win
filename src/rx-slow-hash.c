@@ -33,8 +33,13 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <limits.h>
+
+//linux
+//#include <unistd.h>
+
+//win
+#include <windows.h>
 
 #include "randomx.h"
 #include "c_threads.h"
