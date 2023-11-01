@@ -57,10 +57,10 @@ class CMakeBuild(build_ext):
         subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=self.build_temp)
 
 setup(
-    name='pyrx',
-    version='0.0.5',
-    author='Jethro Grassie',
-    author_email='jtgrassie@users.noreply.github.com',
+    name='xapu',
+    version='0.0.1',
+    author='vyomw',
+    author_email='vyomwankhede@gmail.com',
     description='Python RandomX hashing module',
     long_description='',
     ext_modules=[CMakeExtension('pyrx')],
