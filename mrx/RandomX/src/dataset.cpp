@@ -173,16 +173,14 @@ namespace randomx {
 		rl[5] = rl[0] ^ superscalarAdd5;
 		rl[6] = rl[0] ^ superscalarAdd6;
 		rl[7] = rl[0] ^ superscalarAdd7;
-
-		//RANDOMX_CACHE_ACCESSES
-
-		/*for (unsigned i = 0; i < RANDOMX_CACHE_ACCESSES ; ++i) {
+		//for (unsigned i = 0; i < 1; ++i) {
 			mixBlock = getMixBlock(registerValue, cache->memory);
 			rx_prefetch_nta(mixBlock);
-			SuperscalarProgram& prog = cache->programs[i];
+			SuperscalarProgram& prog = cache->programs[2];
 
-			executeSuperscalar(rl, prog, &cache->reciprocalCache);
-			*/
+			//try remvoing executeSuperscalar
+			//executeSuperscalar(rl, prog, &cache->reciprocalCache);
+
 			for (unsigned q = 0; q < 8; ++q)
 				rl[q] ^= load64_native(mixBlock + 8 * q);
 
